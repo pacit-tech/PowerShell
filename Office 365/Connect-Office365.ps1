@@ -170,10 +170,10 @@ function Connect-Office365
 					}
 				}
 				Else
-				{
+				{	$Global:CustomerDomain = Read-Host -Prompt 'Enter the customers primary 365 domain'
 					$newPSSessionSplat = @{
 						ConfigurationName = 'Microsoft.Exchange'
-						ConnectionUri	  = "https://ps.outlook.com/powershell/"
+						ConnectionUri	  = "https://outlook.office365.com/powershell-liveid?DelegatedOrg=$CustomerDomain"
 						Authentication    = 'Basic'
 						Credential	      = $Credential
 						AllowRedirection  = $true
